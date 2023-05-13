@@ -1,0 +1,26 @@
+version: "3.9"
+
+networks:
+  keydb:
+
+services:
+
+  keydb-a-master:
+    image: eqalpha/keydb
+    container_name: keydb-a-master
+    ports:
+      - 0.0.0.0:6379:6379
+    networks:
+      - keydb
+    volumes:
+      - ./region-a-master.conf:/etc/keydb/keydb.conf
+  
+  keydb-b-master:
+    image: eqalpha/keydb
+    container_name: keydb-b-master
+    ports:
+      - 0.0.0.0:16379:6379
+    networks:
+      - keydb
+    volumes:
+      - ./region-b-master.conf:/etc/keydb/keydb.conf
