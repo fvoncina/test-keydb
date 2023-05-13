@@ -3,6 +3,12 @@
 brew install keydb
 ```
 
+# Redis Stack CLI
+```sh
+brew tap redis-stack/redis-stack
+brew install redis-stack
+```
+
 # Region A
 
 ## Master
@@ -38,4 +44,11 @@ Both servers
 
 ```
 active-replica yes
+```
+
+# Benchmark
+
+
+```sh
+redis-benchmark -p 6379 -n 1000000 -d 1024 -P 50 -c 100 -t set,get -q
 ```
